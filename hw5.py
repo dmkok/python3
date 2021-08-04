@@ -15,8 +15,11 @@
 print("введите неотрицательные цисла, разделенные пробелом")
 text = input()
 text= text.split(" ")
+text=sorted(text)
+min=1
 for i in text:
-    text
-text.sort()
-
-print (text)
+    if int(i)>min:
+        break
+    else:
+        min=int(i)+1
+print(min)
