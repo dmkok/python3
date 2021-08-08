@@ -25,19 +25,13 @@
 Bye!
 
 """
-again = True
-while again != False:
-    text = input()
-    if text == 'cancel':
-        again == False
-        print("Bye!")
-        quit()
-    else:
-        if text.isdigit():
-            s=int(text)
-            if s % 2 ==0:
-                print(s//2)
-            else:
-                print(s*3+1)
+while (text:= input("Введите число:") ) != 'cancel':
+    if text.isdigit():
+        s=int(text)
+        if s % 2 ==0:
+            print(s//2)
         else:
-            print("Не удалось преобразовать введенный текст в число.")
+            print(s*3+1)
+    else:
+        print("Не удалось преобразовать введенный текст в число.")
+print("Bye!")

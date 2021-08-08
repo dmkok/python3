@@ -12,11 +12,16 @@
 #
 # -> 2 1 8 4 2 3 5 7 10 18 82 2
 # 6
-print("введите неотрицательные цисла, разделенные пробелом")
+print("введите неотрицательные числа, разделенные пробелом")
 text = input()
 text= text.split(" ")
+#print(text)
+for t in text:
+    if t == '':
+        text.remove(t)
 text=sorted(text)
 min=1
+#print(text)
 for i in text:
     if int(i)>min:
         break

@@ -16,4 +16,4 @@
 print("введите текст, разделенный пробелом")
 text = input()
 text=text.split(" ")
-print(set(text))
+print(list(set(text)))

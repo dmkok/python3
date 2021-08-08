@@ -10,19 +10,12 @@
 ( root:1, sudo:1001,1002,1003, ...)
 """
 import os
-import subprocess
-myfile=open("output.txt", "w") #для создания, если файла нет и очистки если уже был записан
-myfile.close()
-myfile=open("output.txt", "a")
+myfile=open("output.txt", "w")
 myfile.write("/etc/passwd:\n")
 cmd="cat /etc/passwd |cut -f 7 -d : |uniq -c |sort -u"
-cat=subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT, universal_newlines=True)
-output = cat.communicate()[0]
-myfile.write(str(output))
-myfile.write("\n/etc/group:\n")
+myfile.write(str(os.popen(cmd).read()))
 cmd="cat /etc/group |cut -f 1,4 -d : "
-cat=subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT, universal_newlines=True)
-output = cat.communicate()[0]
-myfile.write(str(output))
+myfile.write("\n/etc/group:\n")
+myfile.write(str(os.popen(cmd).read()))
 myfile.close()
 

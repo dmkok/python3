@@ -7,9 +7,10 @@ For example, 32 + 42 = 9 + 16 = 25 = 52.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 """
-triplet = [print(a*b*c) for a in range(150,700) for b in range(150, 700) for c in range(150,700) if a**2+b**2==c**2 if a+b+c==1000]
-
-
+import time
+start_time = time.time()
+print("Problem 9 - the product abc is: ",[(a*b*c) for a in range(190,450) for b in range(190,450) for c in range(190,450) if a**2+b**2==c**2 and a+b+c==1000][0])
+print("calculating time for problem 9: %s seconds" % (time.time() - start_time))
 
 """
 Sum square difference 
@@ -21,7 +22,7 @@ Hence the difference between the sum of the squares of the first ten natural num
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 """
 
-difference =[print((sum(i for i in range(101))**2)-(sum(i**2 for i in range(101))))]
+print("Problem 6 - the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum: ",(sum(i for i in range(101))**2)-(sum(i**2 for i in range(101))))
 
 
 """
@@ -31,7 +32,7 @@ The series, 1^1 + 2^2 + 3^3 + ... + 1010 = 10405071317.
 Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000
 """
 
-powers=[print(str(sum(i**i for i in range(1001)))[-10:])]
+print("Problem 48 - the last ten digits of the series: ",(str(sum(i**i for i in range(1001)))[-10:]))
 
 
 """
@@ -47,4 +48,4 @@ d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 """
 
 new_list= "".join([str(i) for i in range(1,500000)])
-print(int(new_list[0])*int(new_list[9])*int(new_list[99])*int(new_list[999])*int(new_list[9999])*int(new_list[99999])*int(new_list[999999]))
+print("Problem 40 - d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000= ", (int(new_list[0])*int(new_list[9])*int(new_list[99])*int(new_list[999])*int(new_list[9999])*int(new_list[99999])*int(new_list[999999])))

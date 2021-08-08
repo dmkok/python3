@@ -1,8 +1,16 @@
 '''
-int  | 4849             | 0
-str  | '"hello world"   | "1"
-bool | True==1(int)     | False==0(int)
+таблица соответствия:
+int -bool:
+True == 1, True !=0 , True!=258 -- True
+bool(1), bool(258) - True
+True == 9 - False
 
+False == 0, False != 1, False != 1000 --True
+bool(0) - False
+
+string-bool:
+bool([2,8]), bool('True'), bool('False'), bool([{},{}]) -True длина (len) объекта !=0
+bool(''), bool({}), bool([]) - False пустой объект
 
 различия между input() и raw_input()
 input() - всё преобразуется в str, есть в python 2 and 3
