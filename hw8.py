@@ -26,7 +26,14 @@ Bye!
 
 """
 while (text:= input("Введите число:") ) != 'cancel':
-    if text.isdigit():
+    digit= True
+    for i in text:
+        try:
+            if int(i):
+                pass
+        except:
+            digit=False
+    if digit==True:
         s=int(text)
         if s % 2 ==0:
             print(s//2)

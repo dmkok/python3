@@ -37,7 +37,6 @@ class Router():
         del_list.clear()
         for key,value in self.list_routes.items(): #ищем зависимый маршрут
             if ipaddress.ip_address(ipaddress.ip_address(key)) in ipaddress.ip_network(ipaddress.ip_interface(ip_addr).network):
-                # print("ключ от маршрута для удаления ", ipaddress.ip_address(key))
                 del_list.append(ipaddress.ip_address(key))
         for l in del_list:
             self.list_routes.pop(str(l))#удаляем связанный маршрут
