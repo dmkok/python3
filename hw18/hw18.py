@@ -46,17 +46,17 @@ import time
 start_time = time.time()
 #изменяет разрешение (указываем нужный размер картинки в пикселях)
 resize_h_w((300,300))
-print("reizing-size(h-w): %s seconds" % (time.time() - start_time))
+print("resizing-size(h-w): %s seconds" % (time.time() - start_time))
 
 #изменяет quality (указываем нужный размер файла в байтах) ~16 sec
 start_time = time.time()
 resize_quality(2500000)
-print("reizing-quality: %s seconds" % (time.time() - start_time))
+print("resizing-quality: %s seconds" % (time.time() - start_time))
 
 #считает около минуты на данном файле из-за операции сохранения после изменения размера файла
 #изменяет разрешение (указываем нужный размер файла в байтах)
 # start_time = time.time()
 # resize(2800000)
-# print("reizing-size: %s seconds" % (time.time() - start_time))
+# print("resizing-size: %s seconds" % (time.time() - start_time))
 
 
