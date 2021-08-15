@@ -14,17 +14,24 @@ server_socket.bind(("127.0.0.1",5001))
 records={'ya.ru':'77.88.55.66', 'google.com':'173.194.73.102','cisco.com':'72.163.4.185', 'aws.amazon.com':'13.224.187.73'}
 print ("UDP -Echo Server listening on port 5001:")
 while True:
-	data,address=server_socket.recvfrom(512)
-	print (f"{address}, :ask , {data}")
-	data=str(data.decode())
-	answer=True
-	ip_a=""
-	for key,value in records.items():
-		if data==key:
-			ip_a=value
-	if ip_a =="":
-		ip_a="Нет такой записи"
-	server_socket.sendto(ip_a.encode(),address)
+    data,address=server_socket.recvfrom(512)
+    print (f"{address}, :ask , {data}")
+    data=str(data.decode())
+    answer=True
+    ip_a=""
+    for key,value in records.items():
+        if data==key:
+            ip_a=value
+    if data[:4]=="ADD ":
+        delitomer=data.find(":")
+        domain=data[4:delitomer]
+        ip=data[delitomer+1:]
+        records[domain]=ip
+        print(f"{domain}:{ip}")
+        ip_a="Запись добавлена"
+    if ip_a =="":
+        ip_a="Нет такой записи"
+    server_socket.sendto(ip_a.encode(),address)
 
 
 
