@@ -17,6 +17,7 @@
 import re
 print("введите неотрицательные цисла, разделенные не цифровым литералом")
 text = input()
+text2=text
 text=re.split('\D', text)
 sum=0
 for i in text:
@@ -24,3 +25,23 @@ for i in text:
         i=int(i)
         sum+=i
 print(sum)
+
+
+l = len(text2)
+sum2=0
+i = 0
+while i < l:
+    s_int = ''
+    a = text2[i]
+    while '0' <= a <= '9':
+        s_int+= a
+        i+= 1
+        if i < l:
+            a = text2[i]
+        else:
+            break
+    i+= 1
+    if s_int != '':
+        sum2+=int(s_int)
+
+print(sum2)
