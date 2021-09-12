@@ -13,19 +13,19 @@
       5 /bin/false
 
 /etc/group:
-root: 
-daemon: 
-bin: 
-sys: 
+root: 0,
+daemon: 1,
+bin: 2,
+sys: 3,
 adm: 101,1000
 tty: 101
 disk: 
-lp: 
-mail: 
-news: 
-uucp: 
-man: 
-proxy: 
+lp: 7,
+mail: 8,
+news: 9,
+uucp: 10,
+man: 12,
+proxy: 13,
 kmem: 
 dialout: 
 fax: 
@@ -36,64 +36,64 @@ tape:
 sudo: 1000,1003
 audio: 115
 dip: 1000
-www-data: 
-backup: 
+www-data: 33,
+backup: 34,
 operator: 
-list: 
-irc: 
+list: 38,
+irc: 39,
 src: 
-gnats: 
+gnats: 41,
 shadow: 
 utmp: 
 video: 
 sasl: 
 plugdev: 1000
 staff: 
-games: 
+games: 60,
 users: 
 nogroup: 
 netdev: 
 crontab: 
-syslog: 
+syslog: 104,
 fuse: 
-messagebus: 
+messagebus: 106,
 ssl-cert: 
 lpadmin: 1000
 scanner: 108
 mlocate: 
 ssh: 
 utempter: 
-avahi-autoipd: 
-rtkit: 
-saned: 
-whoopsie: 
-avahi: 
-lightdm: 
+avahi-autoipd: 113,
+rtkit: 114,
+saned: 115,
+whoopsie: 116,
+avahi: 117,
+lightdm: 118,
 nopasswdlogin: 
 bluetooth: 
-colord: 
-pulse: 
+colord: 121,
+pulse: 122,
 pulse-access: 
-dmitry: 
+dmitry: 1000,
 sambashare: 1000
 vboxusers: 
 vboxsf: 
-guest-k6mkV8: 
+guest-k6mkV8: 127,
 systemd-journal: 
-systemd-timesync: 
-systemd-network: 
-systemd-resolve: 
-uuidd: 
+systemd-timesync: 129,
+systemd-network: 130,
+systemd-resolve: 131,
+uuidd: 101,
 input: 
-guest-tnzsve: 
-geoclue: 
-gdm: 
-guest: 
-xrdp: 
-tss: 
+guest-tnzsve: 999,
+geoclue: 132,
+gdm: 134,
+guest: 1001,
+xrdp: 135,
+tss: 136,
 kvm: 
 render: 
-tcpdump: 
-nm-openvpn: 
-systemd-coredump: 
-dima: 1003
+tcpdump: 139,
+nm-openvpn: 140,
+systemd-coredump: 998,
+dima: 1003,1003

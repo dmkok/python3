@@ -25,20 +25,24 @@
 Bye!
 
 """
-while (text:= input("Введите число:") ) != 'cancel':
-    digit= True
-    for i in text:
+def my_int(str):
+    digit = True
+    for i in str:
         try:
             if int(i):
                 pass
         except:
-            digit=False
-    if digit==True:
-        s=int(text)
-        if s % 2 ==0:
-            print(s//2)
+            digit = False
+    if digit == True:
+        s = int(str)
+        if s % 2 == 0:
+            print(s // 2)
         else:
-            print(s*3+1)
+            print(s * 3 + 1)
     else:
         print("Не удалось преобразовать введенный текст в число.")
+    return
+
+while (text:= input("Введите число:") ) != 'cancel':
+    my_int(text)
 print("Bye!")

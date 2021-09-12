@@ -14,6 +14,8 @@ myfile=open("output.txt", "w")
 myfile.write("/etc/passwd:\n")
 cmd="cat /etc/passwd |cut -f 7 -d : |uniq -c |sort -u"
 myfile.write(str(os.popen(cmd).read()))
+myfile.write("\n/etc/group:\n")
+myfile.close()
 #создание словаря вида user:UID
 cmd="cat /etc/passwd |cut -f 1 -d :"
 cmd2="cat /etc/passwd |cut -f 3 -d :"
@@ -49,6 +51,28 @@ for i in range(len(users)):
                             u2[n] = value #замена user на uid
                 users[i]=",".join(u2)
 groups_users=dict(zip(groups,users))#словарь вида group:UID
+#создание словаря вида user:GID
+cmd="cat /etc/passwd |cut -f 1 -d :"
+cmd2="cat /etc/passwd |cut -f 4 -d :"
+u=str(os.popen(cmd).read())
+u_list=list(u.split("\n"))
+for t in u_list:
+    if t == '':
+        u_list.remove(t)
+gid=str(os.popen(cmd2).read())
+gid_list=list(gid.split("\n"))
+for t in gid_list:
+    if t == '':
+        gid_list.remove(t)
+u_gid=dict(zip(u_list,gid_list))#словарь user:GID
+for group, uid2 in groups_users.items():
+    tmp=''
+    tmp=uid2
+    for user, gid2 in u_gid.items():
+        if group == user:
+            groups_users[group]=str(gid2)+","+str(tmp)
+
+
 del_k=False
 for key, value in groups_users.items():#поиск и удаление пустого элемента в словаре
     if key=='' and value=='':
@@ -58,8 +82,7 @@ if del_k==True:
     del groups_users[del_key]
 for key, value in groups_users.items():
     out_str=(f"{key}: {value}")
-myfile.write("\n/etc/group:\n")
-myfile.close()
+
 myfile=open("output.txt", "a")
 for key, value in groups_users.items():
     out_str=(f"{key}: {value}\n")
